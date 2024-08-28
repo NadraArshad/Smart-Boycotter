@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SmartBoycotter</title>
+    <style>
+        body {
+            background-image: url(bg.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: cover;
+        }
+        #nav h1 {
+            font-weight: bolder;
+            color: #fafafa;
+            font-size: 3rem;
+        }
+        #main {
+            margin-top: 8%;
+            text-align: center;
+            position: relative;
+            z-index: 9;
+        }
+        #main h1 {
+            font-weight: 900;
+            color: #fffffe;
+            font-size: 3rem;
+        }
+        #main h1 span {
+            color: red;
+        }
+        #main h2 {
+            color: #fafafa;
+        }
+        #productName {
+            padding: 1rem 5.75rem;
+            border: none;
+            border-radius: 5px;
+        }
+        #btn {
+            padding: 1rem 3rem;
+            background-color: red;
+            border-radius: 5px;
+            border: none;
+            color: #fafafa;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        #display {
+            width: 25vw;
+            height: 40vh;
+            background-color: #fafafa;
+            border-radius: 5px;
+            position: relative;
+            top: 12%;
+            z-index: 10;
+        }
+        .pop {
+            width: 25vw;
+            height: 20vw;
+            background-color: rgba(255, 255, 255, 0.982);
+            position: absolute;
+            left: 35%;
+            top: 0%;
+            text-align: center;
+            border-radius: 10px;
+            padding: 1rem;
+            line-height: 2rem;
+            display: none;
+        }
+        .pop h3 {
+            color: black;
+            font-size: 1.5rem;
+        }
+        .pop img {
+            width: 5vw;
+            margin-top: 8px;
+        }
+        button {
+            padding: 1rem;
+            font-size: 0.75rem;
+            font-weight: 400;
+            background-color: rgb(3, 151, 64);
+            border: none;
+            border-radius: 5px;
+            width: 8rem;
+            color: #fff;
+            cursor: pointer;
+        }
+        .pop1 {
+            width: 25vw;
+            height: 20vw;
+            background-color: rgba(255, 255, 255, 0.982);
+            position: absolute;
+            left: 35%;
+            top: 0%;
+            text-align: center;
+            border-radius: 10px;
+            padding: 1rem;
+            line-height: 1.75rem;
+            display: none;
+        }
+        .pop1 h3 {
+            color: rgb(248, 7, 7);
+            font-size: 2.75rem;
+            font-weight: 900;
+        }
+        .pop1 button {
+            padding: 1rem;
+            font-size: 0.75rem;
+            font-weight: 400;
+            background-color: rgb(248, 7, 7);
+            border: none;
+            color: #fff;
+            border-radius: 5px;
+            width: 8rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="nav">
+        <h1>SmartBoycotter</h1>
+    </div>
+    <div id="main">
+        <div class="pop">
+            <img src="404-tick.png">
+            <h3>This product is good for now!</h3>
+            <p>Your voice is powerful</p>
+            <button type="button" class="btn2">OK</button>
+        </div>
+        <div class="pop1">
+            <h3>No Thanks!</h3>
+            <h4>This product is on boycott list</h4>
+            <button type="button" class="btn2">OK</button>
+        </div>
+        <h1>Make informed choices about the <span>products</span> you buy</h1>
+        <h2>Ready to find🚫products? Enter product name.</h2>
+        <form id="productForm">
+            <input type="text" id="productName" name="productName" 
+            placeholder="Enter Product name">
+            <input type="submit" value="Check" id="btn">
+        </form>
+    </div>
+    <script>
+        let products = ["kitkat", "lays", "cocacola", "nescafe, intel,mcdonals,julie,milo,nokia,nescafe"];
+        let field = document.querySelector("#productName");
+        let msg = document.querySelector(".pop");
+        let msg1 = document.querySelector(".pop1");
+        let btn1 = document.querySelectorAll(".btn2");
+        
+        document.querySelector("#productForm").addEventListener("submit", (event) => {
+            event.preventDefault();
+            if (products.includes(field.value.toLowerCase())) {
+                msg1.style.display = "block";
+                msg.style.display = "none";
+            } else {
+                msg.style.display = "block";
+                msg1.style.display = "none";
+            }
+        });
+
+        btn1.forEach(button => {
+            button.addEventListener("click", () => {
+                msg.style.display = "none";
+                msg1.style.display = "none";
+            });
+        });
+    </script>
+</body>
+</html>
